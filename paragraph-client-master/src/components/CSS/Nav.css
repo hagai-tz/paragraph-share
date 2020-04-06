@@ -1,0 +1,87 @@
+@import "/node_modules/antd/dist/antd.css";
+
+
+.menu-flags{
+    grid-row: 12 ;
+    grid-column:1 ;
+    /* justify-self: flex-start ; */
+    justify-self: center ;
+    align-self: center;
+    /* margin: 8px; */
+    width: 55px;
+    height: 30px;
+    border: #2d2d2d;
+    border-radius: 0px;
+
+
+
+}
+#logo{
+    grid-row: 1;
+    grid-column: 1;
+    width: 50px;
+    height: 50px;
+    justify-self: center ;
+    align-self: top;
+    z-index: 100;
+    /* opacity: 60%; */
+
+}
+
+#nav-log-top-left{
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 30px;
+    text-align: center;
+
+
+}
+
+#nav-bar{
+    grid-column:1/8 ;
+    grid-row:1/102 ;
+    background: #2d2d2d;
+    width: 60px;
+    min-width: 60px;
+    display: grid;
+    grid-template-rows: repeat(12, 1fr) ;
+    position:fixed;
+    height: 100vh;
+    border-right: 2px solid #750175;
+
+    
+  }
+
+.line {
+    grid-row: 11 ;
+    grid-column:1 ;
+    justify-self: center ;
+    align-self: flex-end;
+}
+  .slider{
+      grid-row: 9/11 ;
+      grid-column:1 ;
+      align-self: center;
+      justify-self: center ;
+
+    }
+    
+.hard{
+    grid-row: 11 ;
+    grid-column:1 ;
+    justify-self: center ;
+    /* align-self: center; */
+    margin: 8px;
+    color: #e2e0e0;
+
+  }
+
+.easy{
+    grid-row: 8 ;
+    grid-column:1 ;
+    justify-self: center ;
+    align-self: flex-end;
+    margin: 10px;
+    color: #e2e0e0;
+
+  }

@@ -1,0 +1,13 @@
+#article-link-box{
+    grid-column:30/80 ;
+    grid-row:2/2 ;
+    color: purple;
+    text-align: center;
+
+    display: inline-block;
+    width: 10em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  
+  }

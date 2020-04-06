@@ -1,0 +1,48 @@
+
+  /* author box */
+  
+  #article-author-box{
+    grid-column:30/80 ;
+    grid-row:16 ;
+    /* display: grid; */
+    grid-template-rows: 1fr 1fr;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin-bottom: 10px;
+    
+  }
+
+
+  .article-excerpt{
+    padding: 5px;
+    font-family: "Source Sans pro";
+    font-size: 20px;
+    font-weight: 500;
+    order: 0;
+    grid-row: 1
+  }
+  
+  #box-wrapper{
+    display: flex;
+    /* grid-row: 2; */
+    height: auto;
+
+  }
+  .article-author-line {
+    padding: 5px;
+    font-family: "Source Sans pro";
+    font-size: 12px;  
+    font-weight: 450;
+    order: 1;
+    
+  }
+
+  .article-author-read-time{
+    padding: 5px;
+    order: 2;
+
+    font-family: "Source Sans pro";
+    font-size: 12px;
+    font-weight: 450;
+  
+  }

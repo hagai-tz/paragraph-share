@@ -1,0 +1,17 @@
+
+#vocabulary-box{
+    grid-column: 10/25 ;
+    grid-row: 70/102;
+    border: solid 1px gray;
+    text-align: center;
+    padding: 5px;
+  
+  }
+  .quiz-box{
+    grid-column: 83/98;
+    grid-row:2/18 ;
+  }
+  .statistics-box{
+    grid-column: 83/98 ;
+    grid-row: 70/102;
+  }
