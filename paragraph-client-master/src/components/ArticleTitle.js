@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './CSS/ArticleTitle.css';
 
-import { observer, action, inject } from 'mobx-react';
-import ArticleRawData from '../stores/ArticleRawData';
+import { observer, inject } from 'mobx-react';
 
 @inject('processedData')
 @observer

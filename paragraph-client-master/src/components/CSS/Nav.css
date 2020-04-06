@@ -4,10 +4,8 @@
 .menu-flags{
     grid-row: 12 ;
     grid-column:1 ;
-    /* justify-self: flex-start ; */
     justify-self: center ;
     align-self: center;
-    /* margin: 8px; */
     width: 55px;
     height: 30px;
     border: #2d2d2d;
@@ -24,8 +22,6 @@
     justify-self: center ;
     align-self: top;
     z-index: 100;
-    /* opacity: 60%; */
-
 }
 
 #nav-log-top-left{
@@ -48,8 +44,6 @@
     position:fixed;
     height: 100vh;
     border-right: 2px solid #750175;
-
-    
   }
 
 .line {
@@ -70,7 +64,6 @@
     grid-row: 11 ;
     grid-column:1 ;
     justify-self: center ;
-    /* align-self: center; */
     margin: 8px;
     color: #e2e0e0;
 

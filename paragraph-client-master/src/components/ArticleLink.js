@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import './CSS/ArticleLink.css'
+import './CSS/ArticleLink.css';
 
-import { observer, action, inject } from 'mobx-react'
-import ArticleRawData from '../stores/ArticleRawData'
+import { observer, inject } from 'mobx-react';
 
-@inject("processedData")
-
+@inject('processedData')
 @observer
 class ArticleLink extends Component {
-    render() {
-        return (
-            <h4 id='article-link-box'>{this.props.processedData.rawData.link} </h4>
-        );
-    }
+  render() {
+    return (
+      <h4 id='article-link-box'>{this.props.processedData.rawData.link} </h4>
+    );
+  }
 }
 
 export default ArticleLink;
-

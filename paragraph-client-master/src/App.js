@@ -14,8 +14,7 @@ import GetURL from './components/GetURL'
 import InputURL from './components/InputURL'
 
 import { observer, inject } from 'mobx-react'
-import ReactGA from "react-ga";
-import {PageView, initGA, Event} from './components/Tracking';
+import {PageView, initGA } from './components/Tracking';
 
 
 @inject( "processedData" )
@@ -28,7 +27,6 @@ class App extends Component {
     PageView()
     
     this.props.processedData.translationSlider(60)
-    console.log("I'm ready to load",this.props.processedData.isArticleReadyToLoad)
   }
   
   

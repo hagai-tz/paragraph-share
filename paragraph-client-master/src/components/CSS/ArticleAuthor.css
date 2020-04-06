@@ -1,13 +1,8 @@
 
-  /* author box */
-  
   #article-author-box{
     grid-column:30/80 ;
     grid-row:16 ;
-    /* display: grid; */
     grid-template-rows: 1fr 1fr;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
     margin-bottom: 10px;
     
   }
@@ -24,7 +19,6 @@
   
   #box-wrapper{
     display: flex;
-    /* grid-row: 2; */
     height: auto;
 
   }

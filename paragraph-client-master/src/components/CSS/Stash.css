@@ -4,7 +4,6 @@ body{
   
   .box{
     border: 1px solid black;
-    /* padding: 20px; */
   }
   #user-interface{
     display: grid;
@@ -30,8 +29,6 @@ body{
     grid-column:30/80 ;
     grid-row:2/2 ;
     background: lightslategray;
-    /* height: 1px; */
-  
   }
   
   .article-tiltle{
@@ -41,7 +38,6 @@ body{
     
   }
   
-  /* author box */
   .article-author-box{
     grid-column:30/80 ;
     grid-row:12/16 ;
@@ -55,7 +51,6 @@ body{
   .article-author-pic{
     width: 100%;
     height: 100%;
-    /* height: 30px; */
     grid-column: 1;
     grid-row: 1/4;
   

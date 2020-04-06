@@ -8,20 +8,23 @@ const read = require('moz-readability-node');
 const ArticleCache = require('../model/articleCacheSchema');
 require('dotenv').config();
 
-router.get('/url', async function(req, res) {
+router.get('/url', async function (req, res) {
   let url = req.query.url;
   let lang = req.query.lang;
 
   //Searching for Article in the DB
-  const isUserArticleCachedBoolean = await ArticleCache.find({ articleURLId: url, targetLanguageTranslation: lang }, function (err, articleData) {
-    if (err) {
-      console.log('err: ', err);
-      return;
-    } return articleData;
-  }
+  const isUserArticleCachedBoolean = await ArticleCache.find(
+    { articleURLId: url, targetLanguageTranslation: lang },
+    function (err, articleData) {
+      if (err) {
+        console.log('err: ', err);
+        return;
+      }
+      return articleData;
+    }
   );
 
-    if (isUserArticleCachedBoolean.length === 0) {
+  if (isUserArticleCachedBoolean.length === 0) {
     console.log('The Article is not in the DB ');
 
     //RIPPING THE ARTICLE
@@ -43,7 +46,7 @@ router.get('/url', async function(req, res) {
       paragraphsArray.push(_.words(filtered[a]));
     }
     //Deleting empty array elements from the main array
-    paragraphsArray = paragraphsArray.filter(p => p.length);
+    paragraphsArray = paragraphsArray.filter((p) => p.length);
 
     //spliting arrays that are bigger than 125 charecthers
     let indexObject = [];
@@ -55,10 +58,7 @@ router.get('/url', async function(req, res) {
       }
     }
 
-    console.log(indexObject);
-    // res.send(paragraphsArray)
-
-    ////GOOGLE TRANSLATE
+    //GOOGLE TRANSLATE
 
     let promiseArray = [];
 
@@ -69,7 +69,7 @@ router.get('/url', async function(req, res) {
         source: 'en',
         target: lang,
         model: 'nmt',
-        format: 'text'
+        format: 'text',
       };
 
       //API call for the google translate server
@@ -77,15 +77,12 @@ router.get('/url', async function(req, res) {
       let translatedWords = request.post({
         url: url,
         body: text,
-        json: true
+        json: true,
       });
       promiseArray.push(translatedWords);
     }
 
-    Promise.all(promiseArray).then(function(values) {
-      console.log('this is values', values);
-      // res.send(values)
-
+    Promise.all(promiseArray).then(function (values) {
       // start building the words array
       let almostFinalArray = [];
       for (let i = 0; i < paragraphsArray.length; i++) {
@@ -101,7 +98,6 @@ router.get('/url', async function(req, res) {
               : null;
           almostFinalArray.push(wordObj);
         }
-        // console.log(translatedWords)
       }
 
       //Reassembling the array after translation
@@ -110,10 +106,7 @@ router.get('/url', async function(req, res) {
           paragraphsArray[indexObject[a] + 1]
         );
         paragraphsArray.splice(indexObject[a], 1, concatElement);
-        //  paragraphsArray[indexObject[a]] =  paragraphsArray[indexObject[a]].concat(paragraphsArray[indexObject[a+1]])
-        console.log(paragraphsArray);
       }
-      // res.send(almostFinalArray)
 
       let finalArray = {
         content: almostFinalArray,
@@ -121,7 +114,7 @@ router.get('/url', async function(req, res) {
         author: article.byline,
         link: url,
         readingTime: Math.round(almostFinalArray.length / 200),
-        excerpt: article.excerpt
+        excerpt: article.excerpt,
       };
 
       //Save Article to the DB
@@ -130,20 +123,15 @@ router.get('/url', async function(req, res) {
         targetLanguageTranslation: lang,
         dateCreated: Date(),
         translatedArticleContent: finalArray,
-        cached: true
+        cached: true,
       });
-      console.log("I'm the final array BEFORE save", finalArraySavedForDB);
+
       finalArraySavedForDB.save();
-
-      console.log("I'm the final array AFTER save", finalArraySavedForDB);
-
-      res.status(200)
-      .send(finalArraySavedForDB);
+      res.status(200).send(finalArraySavedForDB);
     });
   } else {
     console.log('We have the Article in the DB', isUserArticleCachedBoolean);
-    res.status(200)
-    .send(isUserArticleCachedBoolean);
+    res.status(200).send(isUserArticleCachedBoolean);
   }
 });
 
