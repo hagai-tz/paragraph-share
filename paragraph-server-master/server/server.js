@@ -1,4 +1,4 @@
-//SERVER
+//SERVER 1.0
 const express = require('express');
 const app = express();
 const path = require('path');
